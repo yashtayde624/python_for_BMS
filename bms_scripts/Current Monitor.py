@@ -2,8 +2,6 @@
 Current Monitor
 ===============
 Author: Yash Tayde
-Target Employers: BMW / Mercedes-Benz / DRDO
-
 Description:
     Monitors current across 4 battery slots and
     classifies each slot as Charging, Empty,
