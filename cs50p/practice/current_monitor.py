@@ -17,6 +17,6 @@ def main():
 
  print(f"Charging Slots: {Charging}")
  print(f"Empty Slots: {Empty}")
- print(f"Overcurrnet Slots: {Overcurrent}")
+ print(f"Overcurrent Slots: {Overcurrent}")
   
 main()
