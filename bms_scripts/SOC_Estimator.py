@@ -1,8 +1,6 @@
 """
 SOC Estimator - Voltage Based
 Author: Yash Tayde
-Target Employers: BMW / Mercedes-Benz / DRDO
-
 Description:
     Reads voltage inputs from 10 Li-ion battery cells,
     calculates the average pack voltage, and estimates
