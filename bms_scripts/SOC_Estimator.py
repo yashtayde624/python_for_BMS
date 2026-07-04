@@ -1,3 +1,27 @@
+"""
+SOC Estimator - Voltage Based
+Author: Yash Tayde
+Target Employers: BMW / Mercedes-Benz / DRDO
+
+Description:
+    Reads voltage inputs from 10 Li-ion battery cells,
+    calculates the average pack voltage, and estimates
+    the State of Charge (SOC) percentage.
+
+Voltage to SOC Mapping (Li-ion chemistry):
+    4.2V        --> 100% SOC (Fully Charged)
+    4.0V-4.2V   --> 80%  SOC
+    3.8V-4.0V   --> 60%  SOC
+    3.6V-3.8V   --> 40%  SOC
+    3.4V-3.6V   --> 20%  SOC
+    below 3.2V  --> 0%   SOC (Critical Low)
+    above 4.2V  --> Overvoltage Fault
+
+Skills Demonstrated:
+    - Python loops and conditionals
+    - Battery voltage monitoring
+    - Basic SOC estimation logic
+"""
 def main():
     total = 0
     
