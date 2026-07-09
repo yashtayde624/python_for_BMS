@@ -1,0 +1,11 @@
+while True:
+    try:
+        x = int(input("What is the value of x?"))
+    except ValueError:
+        print("only numbers sir...")
+    else:
+        break
+
+print(f"the value of x is {x}")
+
+    
