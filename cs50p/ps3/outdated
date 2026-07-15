@@ -1,0 +1,41 @@
+def main():
+    months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+         ]
+    while True:
+        try:
+            date = input("Put the date here:").strip()
+            m,d,y = date.split("/")
+            m = int(m)
+            d =int(d)
+            y = int(y)
+            if 1<= m <=12 and 1<= d <= 31:
+                print(f"{y}-{m:02}-{d:02}")
+                break
+        except:
+            pass
+        try:
+            date = input("Put the date here: ").strip()
+            da_mo,ye = date.split(" ")
+            ye = int(ye)
+            da ,mo = da_mo.split(" ")
+            if mo in months:
+                month = months.index(month) + 1
+            if 1<= da <= 31:
+                print(f"{ye.strip()}-{month:02}-{da:02}")
+                break
+        except:
+            pass
+
+main()
