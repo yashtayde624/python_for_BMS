@@ -1,0 +1,21 @@
+def main():
+ while True:
+  students = {"Yash":"98",
+             "Rahul":"72",
+             "Priya":"67",
+             "Aman":"86"}
+  user = input("What's the name of student:")
+  if user in students:
+    students[user] = int(students[user])
+    if 100 >= students[user] >= 90:
+        print("Grade A")
+    elif 90 > students[user] >= 75:
+        print("Grade B")
+    elif 75 > students[user] >= 60:
+        print("Grade C")
+    else:
+       print("Failed!.....need to study Bro") 
+  else:
+    break
+     
+main()
