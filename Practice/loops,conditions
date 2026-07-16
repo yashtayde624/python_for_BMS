@@ -1,1 +1,17 @@
-
+def main():
+  attempt = 3
+  while True:
+    username = input("Username: ")
+    password = input("Password: ")
+    if username == "admin" and password == "1234":
+      print("Login succesful!")
+      break
+    else:
+      print("Invaid Username or password")
+      attempt -= 1
+    if attempt == 0:
+      print("Account Locked!")
+      break
+        
+            
+main()
