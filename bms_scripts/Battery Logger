@@ -1,0 +1,27 @@
+#BATTERY LOGGER
+def main():
+    total = []
+    voltages = 0
+    reading = 0
+    # For continuous readings
+    while True:
+        try:
+         voltage = input("")
+         if voltage == "done":
+            break
+         else:
+            voltage = float(voltage)
+            voltages += voltage
+            reading += 1
+            #to add the voltage values in the total, also used for averaging
+            total.append(voltage)
+
+        except ValueError:
+           pass
+  
+    print(f"Number of Readings:{reading}")
+    print(f"Highest value:{max(total)}")
+    print(f"Lowest value:{min(total)}")
+    print(f"Average value:{voltages/reading}")
+
+main()
