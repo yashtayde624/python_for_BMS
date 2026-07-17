@@ -17,7 +17,7 @@ def main():
             total.append(voltage)
 
         except ValueError:
-           pass
+           print("Please enter a valid Voltage")
   
     print(f"Number of Readings:{reading}")
     print(f"Highest value:{max(total)}")
