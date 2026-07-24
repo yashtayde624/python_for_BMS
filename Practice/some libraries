@@ -1,0 +1,194 @@
+# ===========================================================
+# PROJECT : iTunes API Search
+# PURPOSE : Learn sys, requests, json, APIs and dictionaries
+# ===========================================================
+
+
+# ===========================================================
+# STEP 1 : Import Libraries
+#
+# sys      -> Used to communicate with the Operating System.
+#             Example: command-line arguments, exiting program.
+#
+# requests -> Used to send HTTP requests to websites.
+#
+# json     -> Used to work with JSON data.
+#             (requests.json() converts JSON into a Python dictionary.)
+# ===========================================================
+
+import sys
+import requests
+import json
+
+
+# ===========================================================
+# STEP 2 : Check Command-Line Arguments
+#
+# sys.argv stores everything typed after "python filename.py"
+#
+# Example:
+#
+# python itunes.py Taylor
+#
+# sys.argv becomes
+#
+# [
+#   "itunes.py",
+#   "Taylor"
+# ]
+#
+# len(sys.argv) == 2
+#
+# If user forgets the artist name or enters too many arguments,
+# stop the program.
+# ===========================================================
+
+if len(sys.argv) != 2:
+    sys.exit("Usage: python itunes.py <artist_name>")
+
+
+# ===========================================================
+# STEP 3 : Send Request to Apple iTunes Server
+#
+# requests.get() sends an HTTP GET request.
+#
+# URL before adding artist:
+#
+# https://itunes.apple.com/search?entity=song&limit=5&term=
+#
+# After adding sys.argv[1]
+#
+# https://itunes.apple.com/search?entity=song&limit=5&term=Taylor
+#
+# entity=song  -> Search only songs
+# limit=5      -> Return only 5 songs
+# term=Taylor  -> Artist/Search keyword
+#
+# The server replies with JSON data.
+# ===========================================================
+
+response = requests.get(
+    "https://itunes.apple.com/search?entity=song&limit=50&term="
+    + sys.argv[1]
+)
+
+
+# ===========================================================
+# STEP 4 : Convert JSON into Python Dictionary
+#
+# Websites return JSON.
+#
+# Python cannot directly work comfortably with JSON.
+#
+# response.json() converts it into a Python dictionary.
+#
+# Example:
+#
+# {
+#   "resultCount":5,
+#   "results":[
+#       {...},
+#       {...}
+#   ]
+# }
+# ===========================================================
+
+o = response.json()
+
+
+# ===========================================================
+# STEP 5 : Access the "results" List
+#
+# The dictionary has a key called "results".
+#
+# o["results"] returns a LIST of dictionaries.
+#
+# Example:
+#
+# [
+#   {"trackName":"Love Story"},
+#   {"trackName":"Blank Space"},
+#   {"trackName":"Style"}
+# ]
+#
+# We loop through each dictionary one by one.
+# ===========================================================
+
+for result in o["results"]:
+
+    # =======================================================
+    # STEP 6 : Print Song Name
+    #
+    # Each "result" is a dictionary.
+    #
+    # Example:
+    #
+    # {
+    #   "trackName":"Love Story",
+    #   "artistName":"Taylor Swift"
+    # }
+    #
+    # result["trackName"] extracts only the song name.
+    # =======================================================
+
+    print(result["trackName"])
+
+
+# ===========================================================
+# -------------------- COMPLETE FLOW -------------------------
+#
+# User
+#   │
+#   │ python itunes.py Taylor
+#   ▼
+# sys.argv
+#   │
+#   ▼
+# Check number of arguments
+#   │
+#   ▼
+# requests.get()
+#   │
+#   ▼
+# Apple iTunes API
+#   │
+#   ▼
+# JSON Data
+#   │
+#   ▼
+# response.json()
+#   │
+#   ▼
+# Python Dictionary
+#   │
+#   ▼
+# o["results"]
+#   │
+#   ▼
+# Loop through each song
+#   │
+#   ▼
+# Print trackName
+#
+# ===========================================================
+
+
+# ===========================================================
+# WHY ARE WE LEARNING THIS FOR BMS?
+#
+# requests  -> Download battery data from cloud/API.
+#
+# json      -> Read battery telemetry from BMS.
+#
+# dictionary-> Store sensor values.
+#
+# list      -> Store voltages of multiple cells.
+#
+# loops     -> Process every battery cell.
+#
+# sys.argv  -> Pass configuration files or test parameters
+#              while running programs.
+#
+# These exact concepts will be used later while building
+# Battery Management Systems.
+# ===========================================================
