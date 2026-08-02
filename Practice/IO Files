@@ -1,0 +1,14 @@
+import csv
+# importes the csv file 
+
+name = input("Whats the name of the character?")
+home = input("Where does hwe lives?")
+#input
+
+with open("names.csv", "a") as file:
+# creates and opens the fine, a stands for appending the following info we'll put
+    writer = csv.writer(file)
+    # csv.writer is a function of the csv library that helps u write in csv file
+    writer.writerow([name , home])
+    #write.writerow is used here to append the info. we'll put in a row
+    print(f"{name} lives in {home}")
